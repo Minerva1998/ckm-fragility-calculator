@@ -1,0 +1,29 @@
+document.getElementById("calculator-form").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  // 获取用户输入
+  const age = parseInt(document.getElementById("age").value);
+  const hypertension = parseInt(document.getElementById("hypertension").value);
+  const diabetes = parseInt(document.getElementById("diabetes").value);
+  const egfr = parseFloat(document.getElementById("egfr").value);
+  const cesd = parseInt(document.getElementById("cesd").value);
+
+  // 假设回归系数如下（这些应该是基于你模型的实际回归系数）
+  const intercept = -2.5;
+  const coef_age = 0.05;
+  const coef_hypertension = 0.8;
+  const coef_diabetes = 1.2;
+  const coef_egfr = -0.03;
+  const coef_cesd = 0.1;
+
+  // 计算预测值
+  const prediction = intercept + coef_age * age + coef_hypertension * hypertension +
+                     coef_diabetes * diabetes + coef_egfr * egfr + coef_cesd * cesd;
+
+  // 将预测值转换为概率（使用Sigmoid函数）
+  const probability = 1 / (1 + Math.exp(-prediction));
+
+  // 显示结果
+  const result = probability > 0.5 ? "高风险" : "低风险";
+  document.getElementById("result").innerText = `风险概率: ${probability.toFixed(2)}\n风险等级: ${result}`;
+});
