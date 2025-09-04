@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CKM衰弱高风险轨迹计算器</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>CKM综合征衰弱高风险轨迹计算器</h1>
+    <form id="calculator-form">
+      <label for="age">年龄 (≥65岁):</label>
+      <input type="number" id="age" required>
+
+      <label for="hypertension">高血压 (1 = 是, 0 = 否):</label>
+      <input type="number" id="hypertension" required>
+
+      <label for="diabetes">糖尿病 (1 = 是, 0 = 否):</label>
+      <input type="number" id="diabetes" required>
+
+      <label for="egfr">eGFR (ml/min/1.73m²):</label>
+      <input type="number" id="egfr" required>
+
+      <label for="cesd">CES-D得分:</label>
+      <input type="number" id="cesd" required>
+
+      <button type="submit">计算风险</button>
+    </form>
+    <div id="result"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
